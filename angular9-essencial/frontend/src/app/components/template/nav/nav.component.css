@@ -1,3 +1,7 @@
+mat-nav-list a {
+    color: var(--primary);
+}
+
 .sidenav{
     background-color: #fafafa;
     width: 200px;

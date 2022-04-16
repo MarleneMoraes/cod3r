@@ -1,7 +1,8 @@
 :root {
-    --primary: rgb(208, 219, 219);
+    --primary: rgb(64, 81, 181);
     --red: rgb(227, 94, 107);
     --black: rgb(0, 0, 0);
+    --white: rgb(255, 255, 255);
 }
 
 html, 
@@ -16,7 +17,7 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--black);
+    color: var(--white);
 }
 
 .v-middle {
@@ -25,12 +26,12 @@ a {
 
 /* Cards */
 
-.title {
+mat-card-title.title {
     font-size: 3rem;
     font-weight: 300;
     line-height: 1.2;
 }
 
-.subtitle {
+mat-card-title.subtitle {
     font-size: 1.1rem;
 }
