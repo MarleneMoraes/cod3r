@@ -2,6 +2,16 @@
   display: flex;
   justify-content: center;
 }
+
 table {
   width: 90%;
+}
+
+.edit {
+  color: var(--primary);
+  margin-right: 10px;
+}
+
+.delete {
+  color: var(--red);
 }
