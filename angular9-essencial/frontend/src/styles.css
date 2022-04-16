@@ -1,0 +1,36 @@
+:root {
+    --primary: rgb(208, 219, 219);
+    --red: rgb(227, 94, 107);
+    --black: rgb(0, 0, 0);
+}
+
+html, 
+body { 
+    height: 100%; 
+}
+
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.v-middle {
+    vertical-align: middle;
+}
+
+/* Cards */
+
+.title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+}
