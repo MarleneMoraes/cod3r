@@ -34,3 +34,9 @@ mat-card-title.title {
 mat-card-title.subtitle {
     font-size: 1.1rem;
 }
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+}
