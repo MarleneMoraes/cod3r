@@ -3,6 +3,9 @@
     --red: rgb(227, 94, 107);
     --black: rgb(0, 0, 0);
     --white: rgb(255, 255, 255);
+    --bg-success: rgb(166, 224, 180);
+    --success: rgb(40, 167, 69);
+    --error: rgb(255, 0, 0);
 }
 
 html, 
@@ -21,6 +24,16 @@ a {
 
 .v-middle {
     vertical-align: middle;
+}
+
+.msg-success {
+    background-color: var(--bg-success);
+    color: var(--success);
+}
+
+.msg-error {
+    background-color: var(--red);
+    color: var(--error);
 }
 
 /* Cards */
