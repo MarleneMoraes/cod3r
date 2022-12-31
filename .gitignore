@@ -1,0 +1,6 @@
+# IDE
+*/.vscode/*
+
+# Files
+*/.nodemodules/*
+*.exe
