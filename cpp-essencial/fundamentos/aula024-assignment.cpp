@@ -26,7 +26,6 @@ int main()
     x += 10; //  x = x + 10;
     cout << x << endl;
 
-    //Atribuicao subtrativa
     x -= 9; //  x = x - 9;
     cout << x << endl;
 
@@ -35,7 +34,8 @@ int main()
 
     /*
         A divisao aplicada com apenas numeros inteiros, 
-        ao
+        mesmo com o resultado com numeros flutuantes, este
+        apresentara apenas a parte inteira
     */
     x /= 7; //  x = x / 7;
     cout << x << endl;
