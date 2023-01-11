@@ -2,8 +2,6 @@
 
 Terceiro capítulo do curso C++ Essencial, apresenta a sintaxe básica da linguagem.
 
-- Aula 043: Atribuição por Cópia vs Referência
-
 - Aula 044: Atribuição por Cópia
 
 - Aula 045: Referência#01
