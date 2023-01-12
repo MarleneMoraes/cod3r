@@ -1,6 +1,6 @@
 # Memória (Referência/Ponteiro)
 
-Terceiro capítulo do curso C++ Essencial, apresenta a sintaxe básica da linguagem.
+Terceiro capítulo do curso C++ Essencial, apresenta a atribuição por cópia e referência, assim como a manipulação do ponteiro.
 
 - Aula 044: Atribuição por Cópia
 
