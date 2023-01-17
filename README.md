@@ -5,7 +5,7 @@ Exercícios foram realizados durante os cursos, iniciados em novembro de 2021. S
 
 - [x] Angular 9 - Essencial [6 horas]
 
-- [ ] C++ Essencial [13 horas]
+- [x] C++ Essencial [13 horas]
 
 - [ ] Fundamentos de JavaScript Funcional [6 horas]
 
