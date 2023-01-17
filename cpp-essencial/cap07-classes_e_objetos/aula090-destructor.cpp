@@ -19,7 +19,7 @@ public:
     string name;
     string email;
 
-    Actor(string name = "Anonymous") : name(name)
+    Person(string name = "Anonymous") : name(name)
     {
         cout << "Hello! My name is " << name << endl;
     }
