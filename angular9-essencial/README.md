@@ -12,8 +12,8 @@ A aplicação foi realizada com Angular CLI 13 no front-end e um json no back-en
 - Aprender Angular na Prática de forma objetiva.
 
 ## Objetivos Pessoais
-Este curso teve o objetivo de aprofundamento da *framework*, podendo aplicar em pequenos projetos para resolução de problemas. Além disso, percebi algumas dificuldades por minha parte relacionadas ao JavaScript e TypeScript, podendo ser solucionadas com o estudo das linguagens.
-O Angular, neste momento, teve atualizações e notei pequenas mudanças entre as versões, o que 
+- Aprofundamento da *framework* na parte prática.
+- Maneiras de se adaptar com as diferenças de versões do Angular.
 
 ## Funcionalidades
 - Tela Home (início): Tela inicial de Bem-vindo
