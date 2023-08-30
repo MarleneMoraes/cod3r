@@ -4,13 +4,9 @@ import static br.ce.wcaquino.utils.DataUtils.adicionarDias;
 
 import java.util.Date;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
-import br.ce.wcaquino.utils.DataUtils;
 
 public class LocacaoService {
 
@@ -32,21 +28,4 @@ public class LocacaoService {
 		return locacao;
 	}
 
-	@Test
-	public void LocacaoServiceTest() {
-		// Montagem do cenario - instancia de classes
-		LocacaoService servico = new LocacaoService();
-
-		Usuario usuario = new Usuario("Maria");
-		Filme filme = new Filme("Grease", 2, 5.50);
-
-		// Acoes a serem realizadas
-		Locacao locacao = servico.alugarFilme(usuario, filme);
-
-		// Verificacao das etapas (de forma auto-verificavel)
-		Assert.assertTrue(locacao.getValor() == 5.50);
-		Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
-		Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
-
-	}
 }
