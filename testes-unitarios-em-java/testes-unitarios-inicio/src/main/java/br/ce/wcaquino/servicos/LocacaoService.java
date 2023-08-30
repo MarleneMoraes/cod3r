@@ -1,7 +1,5 @@
 package br.ce.wcaquino.servicos;
 
-import static br.ce.wcaquino.utils.DataUtils.adicionarDias;
-
 import java.util.Date;
 
 import br.ce.wcaquino.entidades.Filme;
