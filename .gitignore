@@ -1,5 +1,7 @@
 # IDE
 */.vscode/*
+*/.metadata/*
+
 
 # Files
 */.nodemodules/*
