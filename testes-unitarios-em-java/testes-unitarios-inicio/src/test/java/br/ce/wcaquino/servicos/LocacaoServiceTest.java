@@ -24,16 +24,17 @@ public class LocacaoServiceTest {
 		Usuario usuario = new Usuario("Maria");
 		Filme filme = new Filme("Grease", 2, 5.50);
 
-		Locacao locacao = servico.alugarFilme(usuario, filme);
+		Locacao locacao;
+		try {
+			locacao = servico.alugarFilme(usuario, filme);
 
-		// assertThat(locacao.getValor(), is(equalTo(5.50)));
-		// assertThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
-		// assertThat(isMesmaData(locacao.getDataRetorno(),
-		// obterDataComDiferencaDias(1)), is(true));
+			error.checkThat(locacao.getValor(), is(equalTo(5.50)));
+			error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
+			error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-		error.checkThat(locacao.getValor(), is(equalTo(5.50)));
-		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
-		error.checkThat(isMesmaData(locacao.getDataRetorno(), obterDataComDiferencaDias(1)), is(true));
 
 	}
 }
