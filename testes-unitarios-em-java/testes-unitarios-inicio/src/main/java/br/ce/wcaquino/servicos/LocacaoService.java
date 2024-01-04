@@ -17,11 +17,11 @@ public class LocacaoService {
 
 		// Entrega no dia seguinte
 		Date dataEntrega = new Date();
-		dataEntrega = adicionarDias(dataEntrega, 1);
+		//dataEntrega = adicionarDias(dataEntrega, 1);
 		locacao.setDataRetorno(dataEntrega);
 
 		// Salvando a locacao...
-		// TODO adicionar método para salvar
+		// TODO adicionar metodo para salvar
 
 		return locacao;
 	}
