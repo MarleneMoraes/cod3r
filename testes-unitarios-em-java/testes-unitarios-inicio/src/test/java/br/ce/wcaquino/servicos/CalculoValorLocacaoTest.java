@@ -1,5 +1,6 @@
 package br.ce.wcaquino.servicos;
 
+import static br.ce.wcaquino.builders.UsuarioBuilder.criarUsuario;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -58,7 +59,7 @@ public class CalculoValorLocacaoTest {
 
 	@Test
 	public void deveCalcularValorLocacaoConsiderandoDescontos() throws FilmesSemEstoqueException, LocadoraException {
-		Usuario usuario = new Usuario("Joana");
+		Usuario usuario = criarUsuario().retornarUsuario();
 
 		Locacao resultadoLocacao = servico.alugarFilme(usuario, filmes);
 
