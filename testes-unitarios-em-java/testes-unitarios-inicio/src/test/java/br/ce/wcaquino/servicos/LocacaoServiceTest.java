@@ -89,8 +89,6 @@ public class LocacaoServiceTest {
 		exception.expectMessage("Filme vazio");
 
 		servico.alugarFilme(usuario, null);
-
-		System.out.println("Forma nova");
 	}
 
 	@Test

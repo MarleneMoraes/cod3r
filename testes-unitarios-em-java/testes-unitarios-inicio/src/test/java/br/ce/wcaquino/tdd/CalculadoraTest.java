@@ -5,14 +5,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+//@RunWith(ParallelRunner.class)
 public class CalculadoraTest {
+	
 	private Calculadora calculadora;
 
 	@Before
 	public void instanciacao_calculadora() {
 		calculadora = new Calculadora();
 	}
-
+	
 	@Test
 	public void somaDoisValores() {
 		int a = 5;
