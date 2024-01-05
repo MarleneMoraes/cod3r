@@ -4,7 +4,10 @@ import static br.ce.wcaquino.utils.DataUtils.isMesmaData;
 import static br.ce.wcaquino.utils.DataUtils.obterDataComDiferencaDias;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -36,9 +39,10 @@ public class LocacaoServiceTest {
 	@Test
 	public void test() throws Exception {
 		Usuario usuario = new Usuario("Maria");
-		Filme filme = new Filme("Grease", 2, 5.50);
+		
+		List<Filme>filmes = Arrays.asList(new Filme("Grease", 2, 5.50));
 
-		Locacao locacao = servico.alugarFilme(usuario, filme);
+		Locacao locacao = servico.alugarFilme(usuario, filmes);
 
 		error.checkThat(locacao.getValor(), is(equalTo(5.50)));
 		error.checkThat(isMesmaData(locacao.getDataLocacao(), new Date()), is(true));
@@ -48,24 +52,21 @@ public class LocacaoServiceTest {
 	@Test(expected=FilmesSemEstoqueException.class) 
 	public void testLocacao_filmeSemEstoque() throws Exception {
 		Usuario usuario = new Usuario("Joana");
-		Filme filme = new Filme("Grease", 0, 5.50);
+		List<Filme>filmes = Arrays.asList(new Filme("Grease", 0, 5.50));
 
-		servico.alugarFilme(usuario, filme);
-		
+		servico.alugarFilme(usuario, filmes);
 	}
 	
 	@Test
 	public void testLocacao_usuarioVazio() throws FilmesSemEstoqueException {
-		Filme filme = new Filme("Grease", 2, 5.50);
+		List<Filme>filmes = Arrays.asList(new Filme("Grease", 2, 5.50));
 
 		try {
-			servico.alugarFilme(null, filme);
+			servico.alugarFilme(null, filmes);
 			Assert.fail();
 		} catch (LocadoraException e) {
 			Assert.assertThat(e.getMessage(), is("Usuario vazio"));
 		}
-		
-		System.out.println("Forma robusta");
 	}
 	
 	@Test

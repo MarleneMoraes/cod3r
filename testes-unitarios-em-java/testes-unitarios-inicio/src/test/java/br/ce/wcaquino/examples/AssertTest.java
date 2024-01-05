@@ -1,4 +1,4 @@
-package br.ce.wcaquino.servicos;
+package br.ce.wcaquino.examples;
 import org.junit.Assert;
 import org.junit.Test;
 
