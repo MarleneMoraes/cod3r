@@ -5,8 +5,10 @@ import static br.ce.wcaquino.utils.DataUtils.obterDataComDiferencaDias;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +24,7 @@ import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmesSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
+import br.ce.wcaquino.utils.DataUtils;
 
 public class LocacaoServiceTest {
 	private LocacaoService servico;
@@ -134,5 +137,17 @@ public class LocacaoServiceTest {
 		Locacao resultadoLocacao = servico.alugarFilme(usuario, filmes);
 		
 		assertThat(resultadoLocacao.getValor(), is(14.0));
+	}
+
+	@Test
+	public void naoDeveDevolverFilmeNoDomingo() throws FilmesSemEstoqueException, LocadoraException {
+		Usuario usuario = new Usuario("Maria");
+
+		List<Filme> filmes = Arrays.asList(new Filme("Grease", 2, 5.50));
+
+		Locacao locacao = servico.alugarFilme(usuario, filmes);
+
+		boolean ehSegunda = DataUtils.verificarDiaSemana(locacao.getDataRetorno(), Calendar.MONDAY);
+		assertTrue(ehSegunda);
 	}
 }

@@ -1,5 +1,6 @@
 package br.ce.wcaquino.servicos;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmesSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
+import br.ce.wcaquino.utils.DataUtils;
 
 public class LocacaoService {
 
@@ -59,11 +61,13 @@ public class LocacaoService {
 
 		// Entrega no dia seguinte
 		Date dataEntrega = new Date();
-		//dataEntrega = adicionarDias(dataEntrega, 1);
+		dataEntrega = DataUtils.adicionarDias(dataEntrega, 1);
+		
+		if(DataUtils.verificarDiaSemana(dataEntrega, Calendar.SUNDAY)) {
+			dataEntrega = DataUtils.adicionarDias(dataEntrega, 2);
+		}
+		
 		locacao.setDataRetorno(dataEntrega);
-
-		// Salvando a locacao...
-		// TODO adicionar metodo para salvar
 
 		return locacao;
 	}
