@@ -14,6 +14,11 @@ public class UsuarioBuilder {
 		return builder;
 	}
 	
+	public UsuarioBuilder alterarNome(String nome) {
+		usuario.setNome(nome);
+		return this;
+	}
+	
 	public Usuario retornarUsuario() {
 		return usuario;
 	}
