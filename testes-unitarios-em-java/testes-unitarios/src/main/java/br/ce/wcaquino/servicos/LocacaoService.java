@@ -50,8 +50,32 @@ public class LocacaoService {
 		Locacao locacao = new Locacao();
 		locacao.setFilmes(filmes);
 		locacao.setUsuario(usuario);
-		locacao.setDataLocacao(new Date());
+		locacao.setDataLocacao(obterData());
+		// locacao.setDataLocacao(Calendar.getInstance().getTime());
 		
+		locacao.setValor(calcularValorLocacao(filmes));
+
+		// Entrega no dia seguinte
+		// Date dataEntrega = Calendar.getInstance().getTime();
+		Date dataEntrega = obterData();
+		dataEntrega = DataUtils.adicionarDias(dataEntrega, 1);
+		
+		if(DataUtils.verificarDiaSemana(dataEntrega, Calendar.SUNDAY)) {
+			dataEntrega = DataUtils.adicionarDias(dataEntrega, 2);
+		}
+		
+		locacao.setDataRetorno(dataEntrega);
+		
+		dao.salvar(locacao);
+
+		return locacao;
+	}
+
+	protected Date obterData() {
+		return new Date();
+	}
+
+	private Double calcularValorLocacao(List<Filme> filmes) {
 		Double precoTotal = 0.0;
 		
 		for(int i = 0; i < filmes.size(); i++) {
@@ -69,34 +93,21 @@ public class LocacaoService {
 					break;
 				case 5:
 					valorFilme = valorFilme * 0.0;
-					break;				
+					break;	
+				default:
+					valorFilme = valorFilme * 1;
 			}
 			
 			precoTotal += valorFilme;	
 		}
-		
-		locacao.setValor(precoTotal);
-
-		// Entrega no dia seguinte
-		Date dataEntrega = new Date();
-		dataEntrega = DataUtils.adicionarDias(dataEntrega, 1);
-		
-		if(DataUtils.verificarDiaSemana(dataEntrega, Calendar.SUNDAY)) {
-			dataEntrega = DataUtils.adicionarDias(dataEntrega, 2);
-		}
-		
-		locacao.setDataRetorno(dataEntrega);
-		
-		dao.salvar(locacao);
-
-		return locacao;
+		return precoTotal;
 	}
 	
 	public void notificarAtrasos() {
 		List<Locacao> locacoes = dao.obterLocacoesPendentes(); 
 		
 		for(Locacao locacao : locacoes) {
-			if(locacao.getDataRetorno().before(new Date())) {
+			if(locacao.getDataRetorno().before(obterData())) {
 				email.notificarAtraso(locacao.getUsuario());				
 			}
 		}
@@ -107,23 +118,11 @@ public class LocacaoService {
 		
 		novaLocacao.setUsuario(locacao.getUsuario());
 		novaLocacao.setFilmes(locacao.getFilmes());
-		novaLocacao.setDataLocacao(new Date());
+		novaLocacao.setDataLocacao(obterData());
 		novaLocacao.setDataRetorno(DataUtils.obterDataComDiferencaDias(dias));
 		novaLocacao.setValor(locacao.getValor() * dias);
 		
 		dao.salvar(novaLocacao);
 	}
-	
-	/*public void setLocacaoDAO(LocacaoDAO dao) {
-		this.dao = dao;
-	}
-	
-	public void setSPCService(SPCService spc) {
-		this.spc = spc;
-	}
-	
-	public void setEmailService(EmailService email) {
-		this.email = email;
-	}*/
 
 }
