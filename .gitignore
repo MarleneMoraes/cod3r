@@ -6,3 +6,4 @@
 # Files
 */.nodemodules/*
 *.exe
+/.metadata/
