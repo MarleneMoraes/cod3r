@@ -7,6 +7,6 @@ public class OracleDB implements DB {
 	}
 	
 	public void update(String sql) {
-		System.out.println("Uptade querry " + sql + " in Oracle database");
+		System.out.println("Uptade query " + sql + " in Oracle database");
 	}
 }

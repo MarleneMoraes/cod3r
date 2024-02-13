@@ -7,6 +7,6 @@ public class PostgresDB implements DB {
 	}
 	
 	public void update(String sql) {
-		System.out.println("Uptade querry " + sql + " in Postgres database");
+		System.out.println("Uptade query " + sql + " in Postgres database");
 	}
 }
