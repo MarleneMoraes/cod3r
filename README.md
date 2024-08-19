@@ -11,6 +11,6 @@ Exercícios foram realizados durante os cursos, iniciados em novembro de 2021. S
 
 - [ ] Padrões de Projeto em JAVA na Prática! [13 horas]
 
-- [ ] Testes unitários em JAVA: Domine JUnit, Mockito e TDD [8 horas]
+- [x] Testes unitários em JAVA: Domine JUnit, Mockito e TDD [8 horas]
   
 > Status do projeto: Em Andamento :pencil:
